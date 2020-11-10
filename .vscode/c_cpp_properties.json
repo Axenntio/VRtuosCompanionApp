@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/Companion_nix/",
+                "${workspaceFolder}/Companion_nix/build/VRtuosCompanion.p",
+                "/usr/include/qt"
+            ],
+            "defines": [],
+            "compilerPath": "/sbin/gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}

@@ -7,12 +7,12 @@ class ConnectForm : public QMainWindow {
     Q_OBJECT
 public:
     ConnectForm(QWidget *parent = nullptr);
-    Ui::ConnectForm* GetUI() const;
+    Ui::ConnectForm* getUI() const;
+    void addKeyboard(const std::string& name);
 
 private slots:
 
 private:
-    void Save();
     Ui::ConnectForm* _ui;
 };
 

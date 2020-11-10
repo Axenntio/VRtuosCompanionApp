@@ -1,25 +1,29 @@
 #include <iostream>
-#include <cstdlib>
+#include <QtWidgets/QApplication>
 #include "inc/RtMidi.h"
+#include "inc/ConnectForm.hh"
 
 void midiCallback(double deltatime, std::vector<unsigned char> *message, void *userData)
 {
 	//message->at(0)
 }
 
-int main()
+int main(int argc, char **argv)
 {
+	QApplication app(argc, argv);
+	ConnectForm connectForm;
 	RtMidiIn *midi = new RtMidiIn();
-	unsigned int nPorts = midi->getPortCount();
+	unsigned int portNumber = midi->getPortCount();
 
-	if (nPorts != 0) {
-		std::cout << "There is " << nPorts << " port(s) available!" << std::endl;
-		midi->openPort(nPorts - 1);
-		midi->setCallback(&midiCallback);
-		midi->ignoreTypes(false, false, false);
+	for (unsigned char i = 0; i < portNumber; i++) {
+		connectForm.addKeyboard(std::to_string(i));
 	}
-	else
-		std::cout << "No ports available!" << std::endl;
+	//midi->openPort(nPorts - 1);
+	//midi->setCallback(&midiCallback);
+	//midi->ignoreTypes(false, false, false);
+
+	connectForm.show();
+	app.exec();
 	delete midi;
 	return 0;
 }

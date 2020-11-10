@@ -41,7 +41,8 @@ executable(
 			moc_headers : 'inc/ConnectForm.hh'
 		),
 		'src/main.cpp',
-		'src/RtMidi.cpp'
+		'src/RtMidi.cpp',
+		'src/ConnectForm.cpp'
 	],
 	dependencies : [
 		qt5dep,
